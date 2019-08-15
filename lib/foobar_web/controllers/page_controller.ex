@@ -6,6 +6,16 @@ defmodule FoobarWeb.PageController do
   end
 
   def fizzbuzz(conn, _params) do
-    json(conn, %{message: "return foo, bar or foobar here"})
+
+#    determine between foo or bar
+    isFoobar = fn (arg) ->
+      cond do
+        arg["foo"] == "true" && arg["bar"] == "true" -> "foobar"
+        arg["foo"] == "true" -> "foo"
+        arg["bar"] == "true" -> "bar"
+       end
+    end
+
+    json(conn, %{message: isFoobar.(_params)})
   end
 end
