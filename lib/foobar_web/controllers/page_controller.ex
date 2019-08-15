@@ -13,6 +13,7 @@ defmodule FoobarWeb.PageController do
         arg["foo"] == "true" && arg["bar"] == "true" -> "foobar"
         arg["foo"] == "true" -> "foo"
         arg["bar"] == "true" -> "bar"
+        true -> "not foo or bar"
        end
     end
 
